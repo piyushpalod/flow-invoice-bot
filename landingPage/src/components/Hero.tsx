@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Shield, TrendingUp } from "lucide-react";
+import { ArrowRight, Shield, TrendingUp } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   return (
@@ -9,9 +10,8 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center space-y-8">
           {/* Logo/Brand */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-            <Zap className="w-4 h-4 text-white" />
-            <span className="text-sm font-medium text-white">InvoiceFlow AI</span>
+          <div className="inline-flex items-center justify-center">
+            <img src={logo} alt="InvoiceFlow AI" className="h-16" />
           </div>
 
           {/* Main Headline */}
@@ -54,7 +54,7 @@ const Hero = () => {
             
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="flex items-center justify-center mb-2">
-                <Zap className="w-6 h-6 text-accent" />
+                <TrendingUp className="w-6 h-6 text-cyan" />
               </div>
               <div className="text-3xl font-bold text-white mb-1">&lt;60s</div>
               <div className="text-sm text-white/80">Processing Time</div>

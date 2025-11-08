@@ -17,29 +17,32 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Primary - Indigo for trust & intelligence */
+    /* Primary - Blue/Indigo (#4F46E5, #3730A3) */
     --primary: 243 75% 59%;
+    --primary-dark: 243 68% 42%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 243 75% 95%;
     
-    /* Success - Emerald for approvals */
+    /* Success - Teal/Green (#10B981, #065F46) */
     --success: 160 84% 39%;
+    --success-dark: 160 100% 20%;
     --success-foreground: 0 0% 100%;
     --success-light: 160 84% 95%;
     
-    /* Accent - Amber for pending/attention */
+    /* Accent - Amber/Orange (#F59E0B) */
     --accent: 38 92% 50%;
     --accent-foreground: 0 0% 100%;
     --accent-light: 38 92% 95%;
     
-    /* Error - Red for rejections */
+    /* Error - Red/Destructive (#EF4444) */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    /* Neutral shades */
-    --secondary: 220 9% 96%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary - Light blue (#818CF8) */
+    --secondary: 238 84% 75%;
+    --secondary-foreground: 0 0% 100%;
     
+    /* Muted/Neutral */
     --muted: 220 9% 96%;
     --muted-foreground: 220 9% 46%;
 
@@ -49,8 +52,16 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
     
+    /* Additional colors from palette */
+    --teal: 174 72% 56%;
+    --teal-dark: 174 100% 29%;
+    --cyan: 183 86% 56%;
+    --orange: 25 95% 53%;
+    --orange-light: 31 100% 93%;
+    
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(243, 75%, 59%), hsl(260, 75%, 65%));
+    --gradient-primary: linear-gradient(135deg, hsl(243, 75%, 59%), hsl(243, 68%, 42%));
     --gradient-card: linear-gradient(to bottom, hsl(0, 0%, 100%), hsl(220, 9%, 98%));
     
     /* Shadows */
@@ -75,10 +86,12 @@ All colors MUST be HSL.
     --popover-foreground: 0 0% 98%;
 
     --primary: 243 75% 59%;
+    --primary-dark: 243 68% 42%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 243 75% 20%;
 
     --success: 160 84% 39%;
+    --success-dark: 160 100% 20%;
     --success-foreground: 0 0% 100%;
     --success-light: 160 84% 20%;
 
@@ -89,8 +102,8 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --secondary: 220 9% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 238 84% 75%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 220 9% 20%;
     --muted-foreground: 220 9% 65%;
@@ -99,7 +112,14 @@ All colors MUST be HSL.
     --input: 220 9% 25%;
     --ring: 243 75% 59%;
     
+    --teal: 174 72% 56%;
+    --teal-dark: 174 100% 29%;
+    --cyan: 183 86% 56%;
+    --orange: 25 95% 53%;
+    --orange-light: 31 100% 93%;
+    
     --gradient-hero: linear-gradient(135deg, hsl(243, 75%, 45%), hsl(260, 75%, 50%));
+    --gradient-primary: linear-gradient(135deg, hsl(243, 75%, 59%), hsl(243, 68%, 42%));
     --gradient-card: linear-gradient(to bottom, hsl(222, 47%, 15%), hsl(222, 47%, 12%));
   }
 }
