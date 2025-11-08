@@ -9,11 +9,6 @@ const Hero = () => {
 
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center space-y-8">
-          {/* Logo/Brand */}
-          <div className="inline-flex items-center justify-center">
-            <img src={logo} alt="InvoiceFlow AI" className="h-32 sm:h-40 w-auto drop-shadow-2xl filter brightness-110" />
-          </div>
-
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white max-w-4xl mx-auto leading-tight">
             Your AI-Powered Invoice Management Assistant
