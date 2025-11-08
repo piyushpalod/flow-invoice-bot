@@ -14,7 +14,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="InvoiceFlow AI" className="h-42 w-auto" />
+            <img src={logo} alt="InvoiceFlow AI" className="h-14 w-auto" />
           </Link>
           
           {/* Navigation */}
