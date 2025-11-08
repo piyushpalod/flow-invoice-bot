@@ -3,7 +3,7 @@ import { Bell, User, Menu } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "react-router-dom";
 import NavLink from "./NavLink";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 
 const Header = () => {
   const location = useLocation();

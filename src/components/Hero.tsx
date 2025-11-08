@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, TrendingUp } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="text-center space-y-8">
           {/* Logo/Brand */}
           <div className="inline-flex items-center justify-center">
-            <img src={logo} alt="InvoiceFlow AI" className="h-32 w-auto" />
+            <img src={logo} alt="InvoiceFlow AI" className="h-32 sm:h-40 w-auto drop-shadow-2xl filter brightness-110" />
           </div>
 
           {/* Main Headline */}
