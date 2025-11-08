@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Bell, User, Menu, Zap } from "lucide-react";
+import { Bell, User, Menu } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "react-router-dom";
 import NavLink from "./NavLink";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const location = useLocation();
@@ -12,9 +13,8 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center gap-2 px-3 py-1.5 bg-gradient-hero rounded-lg">
-            <Zap className="w-5 h-5 text-white" />
-            <span className="font-bold text-white hidden sm:inline">InvoiceFlow AI</span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="InvoiceFlow AI" className="h-10 w-auto" />
           </Link>
           
           {/* Navigation */}
