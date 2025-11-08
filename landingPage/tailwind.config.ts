@@ -21,7 +21,6 @@ export default {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          dark: "hsl(var(--primary-dark))",
           foreground: "hsl(var(--primary-foreground))",
           light: "hsl(var(--primary-light))",
         },
@@ -31,7 +30,6 @@ export default {
         },
         success: {
           DEFAULT: "hsl(var(--success))",
-          dark: "hsl(var(--success-dark))",
           foreground: "hsl(var(--success-foreground))",
           light: "hsl(var(--success-light))",
         },
@@ -56,19 +54,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        teal: {
-          DEFAULT: "hsl(var(--teal))",
-          dark: "hsl(var(--teal-dark))",
-        },
-        cyan: "hsl(var(--cyan))",
-        orange: {
-          DEFAULT: "hsl(var(--orange))",
-          light: "hsl(var(--orange-light))",
-        },
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
-        'gradient-primary': 'var(--gradient-primary)',
         'gradient-card': 'var(--gradient-card)',
       },
       boxShadow: {
