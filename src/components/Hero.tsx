@@ -11,12 +11,12 @@ const Hero = () => {
         <div className="text-center space-y-8">
           {/* Logo/Brand */}
           <div className="inline-flex items-center justify-center">
-            <img src={logo} alt="InvoiceFlow AI" className="h-16 w-auto" />
+            <img src={logo} alt="InvoiceFlow AI" className="h-24 w-auto" />
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white max-w-4xl mx-auto leading-tight">
-            Your AI-Powered Finance Assistant
+            Your AI-Powered Invoice Management Assistant
           </h1>
           
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
