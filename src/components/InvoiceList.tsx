@@ -85,6 +85,26 @@ const InvoiceList = () => {
         </Button>
       </div>
 
+      {/* Column Headers */}
+      <div className="flex items-center gap-4 px-4 pb-3 border-b border-border">
+        <div className="p-3 opacity-0">
+          <Building2 className="w-5 h-5" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-medium text-muted-foreground">Vendor</p>
+        </div>
+        <div className="w-32">
+          <p className="text-sm font-medium text-muted-foreground">Invoice Status</p>
+        </div>
+        <div className="w-32">
+          <p className="text-sm font-medium text-muted-foreground">Vendor Status</p>
+        </div>
+        <div className="w-28 text-right">
+          <p className="text-sm font-medium text-muted-foreground">Amount</p>
+        </div>
+        <div className="w-5"></div>
+      </div>
+
       <div className="space-y-3">
         {invoices.map((invoice) => {
           const StatusIcon = statusConfig[invoice.status].icon;
