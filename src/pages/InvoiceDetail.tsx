@@ -13,9 +13,12 @@ import {
   CheckCircle2,
   XCircle,
   FileImage,
-  File
+  File,
+  FileSpreadsheet,
+  ArrowRight
 } from "lucide-react";
 import { toast } from "sonner";
+import sampleInvoice from "@/assets/sample-invoice.png";
 
 const InvoiceDetail = () => {
   const { id } = useParams();
@@ -34,7 +37,7 @@ const InvoiceDetail = () => {
     status: "pending",
     verificationStatus: "verified" as "verified" | "suspicious" | "new" | "flagged",
     fileType: "image" as "pdf" | "image" | "document",
-    fileUrl: "/placeholder.svg",
+    fileUrl: sampleInvoice,
     lineItems: [
       { description: "EC2 Instances", quantity: 1, unitPrice: "$2,100.00", total: "$2,100.00" },
       { description: "S3 Storage", quantity: 1, unitPrice: "$840.00", total: "$840.00" },
@@ -90,24 +93,62 @@ const InvoiceDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Invoice Preview */}
           <Card className="p-6 lg:col-span-1">
-            <div className="aspect-[8.5/11] bg-muted rounded-lg overflow-hidden flex items-center justify-center">
-              {invoice.fileType === "image" && invoice.fileUrl ? (
-                <img 
-                  src={invoice.fileUrl} 
-                  alt="Invoice preview" 
-                  className="w-full h-full object-contain"
-                />
-              ) : invoice.fileType === "pdf" ? (
-                <div className="text-center">
-                  <FileText className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">PDF Document</p>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-foreground">Original Invoice</h3>
+                <Badge variant="outline" className="bg-primary-light text-primary border-primary/20">
+                  AI Processed
+                </Badge>
+              </div>
+              
+              <div className="aspect-[8.5/11] bg-muted rounded-lg overflow-hidden flex items-center justify-center border-2 border-border">
+                {invoice.fileType === "image" && invoice.fileUrl ? (
+                  <img 
+                    src={invoice.fileUrl} 
+                    alt="Invoice preview" 
+                    className="w-full h-full object-contain"
+                  />
+                ) : invoice.fileType === "pdf" ? (
+                  <div className="text-center">
+                    <FileText className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
+                    <p className="text-sm text-muted-foreground">PDF Document</p>
+                  </div>
+                ) : (
+                  <div className="text-center">
+                    <File className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
+                    <p className="text-sm text-muted-foreground">Document Preview</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground">Supported Formats:</p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="gap-1.5">
+                    <FileText className="w-3 h-3" />
+                    PDF
+                  </Badge>
+                  <Badge variant="secondary" className="gap-1.5">
+                    <FileImage className="w-3 h-3" />
+                    Image
+                  </Badge>
+                  <Badge variant="secondary" className="gap-1.5">
+                    <FileSpreadsheet className="w-3 h-3" />
+                    XLS
+                  </Badge>
+                  <Badge variant="secondary" className="gap-1.5">
+                    <File className="w-3 h-3" />
+                    Text
+                  </Badge>
                 </div>
-              ) : (
-                <div className="text-center">
-                  <File className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Document Preview</p>
+              </div>
+
+              <div className="bg-primary-light/50 rounded-lg p-3 border border-primary/20">
+                <div className="flex items-center gap-2 text-sm text-primary">
+                  <ArrowRight className="w-4 h-4" />
+                  <span className="font-medium">Transformed to structured data</span>
                 </div>
-              )}
+              </div>
             </div>
           </Card>
 
