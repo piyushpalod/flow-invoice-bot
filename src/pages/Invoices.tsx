@@ -240,35 +240,39 @@ const Invoices = () => {
                     <Building2 className="w-5 h-5 text-primary" />
                   </div>
 
+                  {/* Vendor & Date */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                          {invoice.vendor}
-                        </h3>
-                        <p className="text-sm text-muted-foreground mt-1">{invoice.date}</p>
-                      </div>
-                      
-                      <div className="text-right space-y-2">
-                        <div className="font-semibold text-foreground">{invoice.amount}</div>
-                        <div className="flex flex-col gap-1">
-                          <Badge 
-                            variant="outline" 
-                            className={statusConfig[invoice.status].className}
-                          >
-                            <StatusIcon className="w-3 h-3 mr-1" />
-                            {statusConfig[invoice.status].label}
-                          </Badge>
-                          <Badge 
-                            variant="outline" 
-                            className={verificationConfig[invoice.verificationStatus].className}
-                          >
-                            <VerificationIcon className="w-3 h-3 mr-1" />
-                            {verificationConfig[invoice.verificationStatus].label}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
+                    <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                      {invoice.vendor}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">{invoice.date}</p>
+                  </div>
+
+                  {/* Amount */}
+                  <div className="w-28 text-right">
+                    <div className="font-semibold text-foreground">{invoice.amount}</div>
+                  </div>
+
+                  {/* Status */}
+                  <div className="w-32">
+                    <Badge 
+                      variant="outline" 
+                      className={statusConfig[invoice.status].className}
+                    >
+                      <StatusIcon className="w-3 h-3 mr-1" />
+                      {statusConfig[invoice.status].label}
+                    </Badge>
+                  </div>
+
+                  {/* Verification Status */}
+                  <div className="w-32">
+                    <Badge 
+                      variant="outline" 
+                      className={verificationConfig[invoice.verificationStatus].className}
+                    >
+                      <VerificationIcon className="w-3 h-3 mr-1" />
+                      {verificationConfig[invoice.verificationStatus].label}
+                    </Badge>
                   </div>
 
                   <Button
