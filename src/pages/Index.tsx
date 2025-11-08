@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import MetricsCards from "@/components/MetricsCards";
-import InvoiceList from "@/components/InvoiceList";
 
 const Index = () => {
   return (
@@ -19,7 +18,6 @@ const Index = () => {
         </div>
         
         <MetricsCards />
-        <InvoiceList />
       </main>
 
       {/* Footer */}
