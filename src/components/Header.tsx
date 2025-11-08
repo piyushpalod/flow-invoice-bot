@@ -41,9 +41,11 @@ const Header = () => {
           </Button>
 
           {/* User Profile */}
-          <Button variant="ghost" size="icon">
-            <User className="w-5 h-5" />
-          </Button>
+          <Link to="/profile">
+            <Button variant="ghost" size="icon">
+              <User className="w-5 h-5" />
+            </Button>
+          </Link>
 
           {/* Mobile Menu */}
           <Button variant="ghost" size="icon" className="sm:hidden">
