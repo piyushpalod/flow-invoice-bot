@@ -17,14 +17,15 @@ interface Invoice {
   amount: string;
   date: string;
   status: "pending" | "approved" | "review" | "rejected";
+  verificationStatus: "verified" | "suspicious" | "new" | "flagged";
 }
 
 const invoices: Invoice[] = [
-  { id: "1", vendor: "Amazon Web Services", amount: "$3,240", date: "Today", status: "pending" },
-  { id: "2", vendor: "Slack Technologies", amount: "$890", date: "Today", status: "approved" },
-  { id: "3", vendor: "Office Depot", amount: "$156", date: "Nov 7", status: "review" },
-  { id: "4", vendor: "Microsoft Azure", amount: "$2,100", date: "Nov 6", status: "approved" },
-  { id: "5", vendor: "Adobe Creative Cloud", amount: "$599", date: "Nov 5", status: "pending" },
+  { id: "1", vendor: "Amazon Web Services", amount: "$3,240", date: "Today", status: "pending", verificationStatus: "verified" },
+  { id: "2", vendor: "Slack Technologies", amount: "$890", date: "Today", status: "approved", verificationStatus: "verified" },
+  { id: "3", vendor: "Office Depot", amount: "$156", date: "Nov 7", status: "review", verificationStatus: "suspicious" },
+  { id: "4", vendor: "Microsoft Azure", amount: "$2,100", date: "Nov 6", status: "approved", verificationStatus: "verified" },
+  { id: "5", vendor: "Adobe Creative Cloud", amount: "$599", date: "Nov 5", status: "pending", verificationStatus: "new" },
 ];
 
 const statusConfig = {
@@ -50,6 +51,29 @@ const statusConfig = {
   },
 };
 
+const verificationConfig = {
+  verified: {
+    label: "Verified",
+    icon: CheckCircle2,
+    className: "bg-success-light text-success border-success/20",
+  },
+  suspicious: {
+    label: "Suspicious",
+    icon: MessageSquare,
+    className: "bg-destructive/10 text-destructive border-destructive/20",
+  },
+  new: {
+    label: "New",
+    icon: Clock,
+    className: "bg-primary-light text-primary border-primary/20",
+  },
+  flagged: {
+    label: "Flagged",
+    icon: MessageSquare,
+    className: "bg-accent-light text-accent border-accent/20",
+  },
+};
+
 const InvoiceList = () => {
   return (
     <Card className="p-6">
@@ -64,6 +88,7 @@ const InvoiceList = () => {
       <div className="space-y-3">
         {invoices.map((invoice) => {
           const StatusIcon = statusConfig[invoice.status].icon;
+          const VerificationIcon = verificationConfig[invoice.verificationStatus].icon;
           
           return (
             <div
@@ -85,15 +110,24 @@ const InvoiceList = () => {
                     <p className="text-sm text-muted-foreground mt-1">{invoice.date}</p>
                   </div>
                   
-                  <div className="text-right">
+                  <div className="text-right space-y-2">
                     <div className="font-semibold text-foreground">{invoice.amount}</div>
-                    <Badge 
-                      variant="outline" 
-                      className={`mt-2 ${statusConfig[invoice.status].className}`}
-                    >
-                      <StatusIcon className="w-3 h-3 mr-1" />
-                      {statusConfig[invoice.status].label}
-                    </Badge>
+                    <div className="flex flex-col gap-1">
+                      <Badge 
+                        variant="outline" 
+                        className={statusConfig[invoice.status].className}
+                      >
+                        <StatusIcon className="w-3 h-3 mr-1" />
+                        {statusConfig[invoice.status].label}
+                      </Badge>
+                      <Badge 
+                        variant="outline" 
+                        className={verificationConfig[invoice.verificationStatus].className}
+                      >
+                        <VerificationIcon className="w-3 h-3 mr-1" />
+                        {verificationConfig[invoice.verificationStatus].label}
+                      </Badge>
+                    </div>
                   </div>
                 </div>
               </div>

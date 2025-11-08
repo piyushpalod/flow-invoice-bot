@@ -30,6 +30,7 @@ const InvoiceDetail = () => {
     date: "November 8, 2024",
     dueDate: "December 8, 2024",
     status: "pending",
+    verificationStatus: "verified" as "verified" | "suspicious" | "new" | "flagged",
     lineItems: [
       { description: "EC2 Instances", quantity: 1, unitPrice: "$2,100.00", total: "$2,100.00" },
       { description: "S3 Storage", quantity: 1, unitPrice: "$840.00", total: "$840.00" },
@@ -37,6 +38,25 @@ const InvoiceDetail = () => {
     ],
     department: "Engineering Department",
     costCenter: "Infrastructure (401)",
+  };
+
+  const verificationConfig = {
+    verified: {
+      label: "Verified",
+      className: "bg-success-light text-success border-success/20",
+    },
+    suspicious: {
+      label: "Suspicious",
+      className: "bg-destructive/10 text-destructive border-destructive/20",
+    },
+    new: {
+      label: "New",
+      className: "bg-primary-light text-primary border-primary/20",
+    },
+    flagged: {
+      label: "Flagged",
+      className: "bg-accent-light text-accent border-accent/20",
+    },
   };
 
   const handleApprove = () => {
@@ -83,9 +103,17 @@ const InvoiceDetail = () => {
                   <h1 className="text-2xl font-bold text-foreground mb-1">
                     {invoice.invoiceNumber}
                   </h1>
-                  <Badge variant="outline" className="bg-accent-light text-accent border-accent/20">
-                    Pending Review
-                  </Badge>
+                  <div className="flex gap-2">
+                    <Badge variant="outline" className="bg-accent-light text-accent border-accent/20">
+                      Pending Review
+                    </Badge>
+                    <Badge 
+                      variant="outline" 
+                      className={verificationConfig[invoice.verificationStatus].className}
+                    >
+                      {verificationConfig[invoice.verificationStatus].label}
+                    </Badge>
+                  </div>
                 </div>
                 <div className="text-right">
                   <div className="text-sm text-muted-foreground mb-1">Total Amount</div>
