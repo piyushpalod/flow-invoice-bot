@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="text-center space-y-8">
           {/* Logo/Brand */}
           <div className="inline-flex items-center justify-center">
-            <img src={logo} alt="InvoiceFlow AI" className="h-24 w-auto" />
+            <img src={logo} alt="InvoiceFlow AI" className="h-72 w-auto" />
           </div>
 
           {/* Main Headline */}
