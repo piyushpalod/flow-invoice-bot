@@ -21,6 +21,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-6">
             <NavLink to="/" active={location.pathname === "/"}>Dashboard</NavLink>
             <NavLink to="/invoices" active={location.pathname.startsWith("/invoices")}>Invoices</NavLink>
+            <NavLink to="/history" active={location.pathname === "/history"}>History</NavLink>
           </nav>
         </div>
 

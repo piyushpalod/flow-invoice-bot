@@ -11,8 +11,19 @@ import {
   CheckCircle2, 
   MessageSquare, 
   FileText,
-  ChevronRight
+  ChevronRight,
+  Upload
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 interface Invoice {
@@ -58,6 +69,7 @@ const Invoices = () => {
   const navigate = useNavigate();
   const [selectedInvoices, setSelectedInvoices] = useState<string[]>([]);
   const [invoiceList, setInvoiceList] = useState(invoices);
+  const [uploadOpen, setUploadOpen] = useState(false);
 
   const toggleInvoice = (id: string) => {
     setSelectedInvoices(prev =>
@@ -93,16 +105,58 @@ const Invoices = () => {
     setSelectedInvoices([]);
   };
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      toast.success(`${files.length} file(s) uploaded successfully`);
+      setUploadOpen(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Invoice Review</h1>
-          <p className="text-muted-foreground">
-            Review, approve, or reject invoices individually or in bulk
-          </p>
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Invoice Review</h1>
+            <p className="text-muted-foreground">
+              Review, approve, or reject invoices individually or in bulk
+            </p>
+          </div>
+          
+          <Dialog open={uploadOpen} onOpenChange={setUploadOpen}>
+            <DialogTrigger asChild>
+              <Button className="gap-2">
+                <Upload className="w-4 h-4" />
+                Upload Invoice
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Upload Invoice</DialogTitle>
+                <DialogDescription>
+                  Upload invoices in PDF, image, or text format
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="invoice-file">Select File(s)</Label>
+                  <Input
+                    id="invoice-file"
+                    type="file"
+                    accept=".pdf,.png,.jpg,.jpeg,.txt"
+                    multiple
+                    onChange={handleFileUpload}
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Supported formats: PDF, PNG, JPG, JPEG, TXT
+                  </p>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
 
         <Card className="p-6">
