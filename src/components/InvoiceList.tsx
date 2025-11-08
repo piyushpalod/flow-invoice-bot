@@ -108,11 +108,6 @@ const InvoiceList = () => {
                 <p className="text-sm text-muted-foreground mt-1">{invoice.date}</p>
               </div>
 
-              {/* Amount */}
-              <div className="w-28 text-right">
-                <div className="font-semibold text-foreground">{invoice.amount}</div>
-              </div>
-
               {/* Status */}
               <div className="w-32">
                 <Badge 
@@ -133,6 +128,11 @@ const InvoiceList = () => {
                   <VerificationIcon className="w-3 h-3 mr-1" />
                   {verificationConfig[invoice.verificationStatus].label}
                 </Badge>
+              </div>
+
+              {/* Amount */}
+              <div className="w-28 text-right">
+                <div className="font-semibold text-foreground">{invoice.amount}</div>
               </div>
 
               {/* Arrow Icon */}
