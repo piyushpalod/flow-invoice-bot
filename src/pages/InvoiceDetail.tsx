@@ -33,8 +33,8 @@ const InvoiceDetail = () => {
     dueDate: "December 8, 2024",
     status: "pending",
     verificationStatus: "verified" as "verified" | "suspicious" | "new" | "flagged",
-    fileType: "image" as "pdf" | "image" | "document", // Can be 'pdf', 'image', or 'document'
-    fileUrl: "https://images.unsplash.com/photo-1554224311-beee460c201a?w=400", // Sample invoice image
+    fileType: "image" as "pdf" | "image" | "document",
+    fileUrl: "/placeholder.svg",
     lineItems: [
       { description: "EC2 Instances", quantity: 1, unitPrice: "$2,100.00", total: "$2,100.00" },
       { description: "S3 Storage", quantity: 1, unitPrice: "$840.00", total: "$840.00" },
