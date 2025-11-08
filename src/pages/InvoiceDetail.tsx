@@ -11,7 +11,9 @@ import {
   DollarSign,
   FileText,
   CheckCircle2,
-  XCircle
+  XCircle,
+  FileImage,
+  File
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -31,6 +33,8 @@ const InvoiceDetail = () => {
     dueDate: "December 8, 2024",
     status: "pending",
     verificationStatus: "verified" as "verified" | "suspicious" | "new" | "flagged",
+    fileType: "image" as "pdf" | "image" | "document", // Can be 'pdf', 'image', or 'document'
+    fileUrl: "https://images.unsplash.com/photo-1554224311-beee460c201a?w=400", // Sample invoice image
     lineItems: [
       { description: "EC2 Instances", quantity: 1, unitPrice: "$2,100.00", total: "$2,100.00" },
       { description: "S3 Storage", quantity: 1, unitPrice: "$840.00", total: "$840.00" },
@@ -86,11 +90,24 @@ const InvoiceDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Invoice Preview */}
           <Card className="p-6 lg:col-span-1">
-            <div className="aspect-[8.5/11] bg-muted rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <FileText className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
-                <p className="text-sm text-muted-foreground">PDF Preview</p>
-              </div>
+            <div className="aspect-[8.5/11] bg-muted rounded-lg overflow-hidden flex items-center justify-center">
+              {invoice.fileType === "image" && invoice.fileUrl ? (
+                <img 
+                  src={invoice.fileUrl} 
+                  alt="Invoice preview" 
+                  className="w-full h-full object-contain"
+                />
+              ) : invoice.fileType === "pdf" ? (
+                <div className="text-center">
+                  <FileText className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
+                  <p className="text-sm text-muted-foreground">PDF Document</p>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <File className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
+                  <p className="text-sm text-muted-foreground">Document Preview</p>
+                </div>
+              )}
             </div>
           </Card>
 
